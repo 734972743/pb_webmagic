@@ -97,8 +97,8 @@ public class VideoProcessor implements PageProcessor{
 	//@Scheduled 这个注解是用于定时任务的
 	//initialDelay 这个是当任务启动后，等多久执行方法（单位毫秒）
 	//fixedDelay 每隔多久执行这个方法（单位毫秒）
-	@Scheduled(initialDelay=1000, fixedDelay=1000*100) 
-	//@Scheduled(cron="0 0 0 ? * 1") //设置定时任务  每周1更新一次:  秒 分 时 日 月 周 年(可省)
+	//@Scheduled(initialDelay=1000, fixedDelay=1000*100) 
+	@Scheduled(cron="0 0 0 ? * MON") //设置定时任务  每周1更新一次:  秒 分 时 日 月 周 年(可省)
 	public void process() {
 		//1。先删除掉旧的数据
 		videoService.deleteAllVideo();
